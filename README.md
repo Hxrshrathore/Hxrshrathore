@@ -1,4 +1,8 @@
 # 💫 About Me:
+<p align="center">
+  <img src="https://i.pinimg.com/564x/96/26/23/9626238ee02abe277523d0efd0339da1.jpg" alt="Your Image" style="border-radius: 50%; width: 150px; height: 250px; object-fit: cover;">
+</p>
+
 🌱 I’m currently learning Flask<br><br>👯 I’m looking to collaborate on Rasberry<br><br>👨‍💻 All of my projects are available at hxrshrathore.me<br><br>💬 Ask me about Python, Rasberry Pi, Linux<br><br>📫 How to reach me rathore_harsh@outlook.in<br><br>📄 Know about my experiences Here!
 
 
