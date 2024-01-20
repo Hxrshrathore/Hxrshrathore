@@ -3,6 +3,9 @@
   <img src="https://i.pinimg.com/564x/96/26/23/9626238ee02abe277523d0efd0339da1.jpg" alt="Your Image" style="border-radius: 50%; width: 150px; height: 250px; object-fit: cover;">
 </p>
 
+[![](https://visitcount.itsvg.in/api?id=hxrshrathore&icon=0&color=12)](https://visitcount.itsvg.in)
+
+
 🌱 I’m currently learning Flask<br><br>👯 I’m looking to collaborate on Rasberry<br><br>👨‍💻 All of my projects are available at hxrshrathore.me<br><br>💬 Ask me about Python, Rasberry Pi, Linux<br><br>📫 How to reach me rathore_harsh@outlook.in<br><br>📄 Know about my experiences Here!
 
 
@@ -26,7 +29,6 @@
 <img src='https://randommeme-five.vercel.app/' style="height: 400px;"/>
 
 ---
-[![](https://visitcount.itsvg.in/api?id=hxrshrathore&icon=0&color=12)](https://visitcount.itsvg.in)
 
   ## 💰 You can help me by Donating
   [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/Hxrshrathore) [![PayPal](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/Hxrshrathore) 
