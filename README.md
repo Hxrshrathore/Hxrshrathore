@@ -1,59 +1,101 @@
-# Harsh Kumar | Full Stack Developer & UI/UX Designer
-<p align="center">
-  <img src="https://media.licdn.com/dms/image/v2/D5603AQHr3Xc8Su8L5Q/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728657423748?e=1750896000&v=beta&t=bW3r5TvcxEtdqGX9H4WKCPPxAJ6kSAWy3UeBultTPWc" alt="Harsh Kumar" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover;">
-</p>
+<div align="center">
 
-🌐 [Website](https://hxrshrathore.me) | [LinkedIn](https://linkedin.com/in/harsh-kumar-rathore) | [GitHub](https://github.com/hxrshrathore) | [Instagram](https://instagram.com/Hxrshrathore)
+# hey, I’m Harsh 👋
 
----
+**Full Stack Developer · Product Designer · Freelancer**
 
-## About Me:
-I’m Harsh Kumar, a results-driven Full Stack Developer and UI/UX Designer with 1.5+ years of experience in crafting seamless, scalable digital products that balance performance with aesthetics.
+*I build things that ship — from the first Figma frame to production.*
 
-Currently pursuing a B.Tech in Electronics & Computer Science at KIIT University (Graduating 2027), I’ve built and deployed over 10 full-stack projects utilizing React, Next.js, TypeScript, and Tailwind CSS. One of my notable projects is **Drizz Originals**, an e-commerce platform where I handled end-to-end development (frontend + backend), Razorpay payment integration, and optimized UI/UX for improved conversion rates.
+[![Portfolio](https://img.shields.io/badge/Portfolio-hxrshrathore.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white)](https://hxrshrathore.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-hxrshrathore-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/hxrshrathore)
+[![Email](https://img.shields.io/badge/Email-rathoreharsh@outlook.in-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white)](mailto:rathoreharsh@outlook.in)
 
-Proficient in design tools such as **Figma**, I bridge the gap between developers and designers to create polished, user-friendly experiences. Additionally, I have started integrating **AI** and **Machine Learning** models (like LLaMA 4, Mistral, and OpenRouter APIs) into web workflows to create smarter, more personalized user interactions.
+</div>
 
-Currently open to:
-- Freelance gigs
-- Internships (remote/onsite)
-- Collaborations in e-commerce, SaaS, or AI-powered products
+-----
 
-Let’s connect if you’re building something bold. I’m eager to contribute and grow with you.
+## About Me
 
----
+I’m a freelance Full Stack Developer and Product Designer with 3+ years of experience shipping real products across SaaS, e-commerce, EdTech, and government. I started as a designer, grew into full-stack, and now I do both — which means I can take something from zero to live without losing the plot between design and engineering.
 
-## Tech Stack & Tools:
-**Frontend:**
-- React | Next.js | TypeScript | Tailwind CSS | Figma | HTML5 | CSS3
+Currently on retainer at **Nutgram** and studying B.Tech in Electronics and Computer Science at **KIIT University** (2023–2027).
 
-**Backend:**
-- Node.js | Express.js | Python | Django | Flask
+- 🚀 Rebuilt ViralARC.ai from the ground up → **15,000+ paid users** and **100,000+ waitlist signups** in 3 months
+- 🏆 **Best Design Award** at Kritarth 2026, KIIT University
+- 🌐 Solo designed and developed **7 live university event platforms**
+- 🧒 Built a nutrition tracking platform used by **50,000+ children** across Rajasthan for UNICEF & Government of Rajasthan
 
-**Databases:**
-- MySQL | MongoDB
+-----
 
-**Payment Integration:**
-- Razorpay
+## Tech Stack
 
-**Version Control:**
-- Git | GitHub
+**Frontend**
 
-**Tools & Platforms:**
-- Figma | Canva | Firebase | Docker | Heroku | Cloudflare | Nginx | Apache
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat-square&logo=radixui&logoColor=white)
 
-**AI & Machine Learning:**
-- LLaMA 4 | Mistral | OpenRouter APIs | Python ML Libraries (Pandas, NumPy, scikit-learn)
+**Backend & Infra**
 
-**Other Skills:**
-- SEO | Open Source Contribution | Agile Methodologies
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
----
+**Design**
 
-## GitHub Stats:
-![Harsh Kumar GitHub Stats](https://github-readme-stats.vercel.app/api?username=hxrshrathore&theme=graywhite&hide_border=true&count_private=true)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
 
----
+**AI & Data**
 
-## Connect with Me:
-- [Email](mailto:rathore_harsh@outlook.in) | [LinkedIn](https://linkedin.com/in/harsh-kumar-rathore) | [GitHub](https://github.com/hxrshrathore)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenAI](https://img.shields.io/badge/LLaMA_·_Mistral_·_OpenRouter-412991?style=flat-square&logo=openai&logoColor=white)
+
+-----
+
+## Selected Work
+
+|Project                                                                                                                                                        |What it is                                                                      |Stack                      |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------|
+|[ViralARC.ai](https://viralarc.ai)                                                                                                                             |Social media automation SaaS — rebuilt from scratch, 15K+ paid users            |Next.js, Firebase, Supabase|
+|[Nutgram](https://nutgram.vercel.app)                                                                                                                          |Organic gifting e-commerce store + client portal                                |Next.js, TypeScript        |
+|[Nexus AI](https://nexus-ai-v1-3.vercel.app)                                                                                                                   |AI tool suite in production                                                     |LLaMA, Mistral, OpenRouter |
+|[Hermes Racing](https://hermesracing.in)                                                                                                                       |Motorsports brand site with cinematic preloader                                 |Next.js                    |
+|[KIITFest](https://kiitfest.org) · [Kritarth](https://kritarth.kiit.ac.in) · [Chimera](https://chimera.kiit.ac.in) · [TEDx KIIT](https://tedxkiituniversity.in)|University event platforms — design systems, registration flows, 1000+ delegates|Next.js, Figma             |
+
+-----
+
+## Experience Snapshot
+
+**Nutgram** — Freelance Full Stack Developer & Digital Strategist *(Apr 2026 – Present)*
+Built the full e-commerce store and custom client portal. Running ad campaigns on retainer — content reach up 35%+ in 60 days.
+
+**ViralARC.ai** — Freelance Full Stack Developer *(Nov 2025 – Jan 2026)*
+Joined as a designer, found the codebase broken, took ownership, migrated everything to Next.js + Firebase, redesigned 8+ screens. Product hit 15K paid users in 3 months.
+
+**Hemsida AVT** — Web Designer & Developer *(Aug 2024 – Jul 2025)*
+10+ school websites. Lighthouse scores up 30%. ERP modules that cut admin work by 80% across 12+ schools.
+
+**UNICEF & Government of Rajasthan** — Freelance Full Stack Developer *(Jul 2021 – Dec 2023)*
+Nutrition tracking platform for 50,000+ children. Dashboards for 50+ field workers. Reporting time dropped 40%.
+
+-----
+
+## Certifications
+
+Google Cloud — Digital Transformation · App Modernization · Data & AI · Generative AI · Large Language Models · Responsible AI · Cloud Security
+
+-----
+
+<div align="center">
+
+*Open to freelance, contracts, and the right full-time opportunity.*
+
+**[hxrshrathore.vercel.app](https://hxrshrathore.vercel.app) · [rathoreharsh@outlook.in](mailto:rathoreharsh@outlook.in)**
+
+</div>
