@@ -1,101 +1,202 @@
 <div align="center">
 
-# hey, I’m Harsh 👋
+# Hey, I'm Harsh 👋
 
-**Full Stack Developer · Product Designer · Freelancer**
+### Frontend Engineer · Full-Stack Developer · UI/UX Designer
 
-*I build things that ship — from the first Figma frame to production.*
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=20&pause=1000&color=58A6FF&center=true&vCenter=true&width=650&lines=I+build+interfaces+people+enjoy+using.;Next.js+%2B+TypeScript+%2B+good+design.;Turning+Figma+files+into+real+products.;Building+with+AI%2C+one+experiment+at+a+time." alt="Typing SVG" />
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-hxrshrathore.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white)](https://hxrshrathore.vercel.app)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-hxrshrathore-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/hxrshrathore)
-[![Email](https://img.shields.io/badge/Email-rathoreharsh@outlook.in-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white)](mailto:rathoreharsh@outlook.in)
+<br/>
+
+<a href="https://hxrshrathore.vercel.app">
+  <img src="https://img.shields.io/badge/Portfolio-Visit-111111?style=for-the-badge&logo=vercel&logoColor=white" />
+</a>
+<a href="https://www.linkedin.com/in/hxrshrathore">
+  <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+</a>
+<a href="https://www.instagram.com/hxrsh.design">
+  <img src="https://img.shields.io/badge/Design-hxrsh.design-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
+</a>
 
 </div>
 
------
+---
 
-## About Me
+### `whoami`
 
-I’m a freelance Full Stack Developer and Product Designer with 3+ years of experience shipping real products across SaaS, e-commerce, EdTech, and government. I started as a designer, grew into full-stack, and now I do both — which means I can take something from zero to live without losing the plot between design and engineering.
+```ts
+const harsh = {
+  role: ["Frontend Engineer", "Full-Stack Developer", "UI/UX Designer"],
 
-Currently on retainer at **Nutgram** and studying B.Tech in Electronics and Computer Science at **KIIT University** (2023–2027).
+  buildingWith: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "Node.js",
+    "PostgreSQL",
+  ],
 
-- 🚀 Rebuilt ViralARC.ai from the ground up → **15,000+ paid users** and **100,000+ waitlist signups** in 3 months
-- 🏆 **Best Design Award** at Kritarth 2026, KIIT University
-- 🌐 Solo designed and developed **7 live university event platforms**
-- 🧒 Built a nutrition tracking platform used by **50,000+ children** across Rajasthan for UNICEF & Government of Rajasthan
+  exploring: ["AI/LLMs", "WebGL", "Creative Development"],
 
------
+  philosophy: "Good engineering should feel invisible.",
 
-## Tech Stack
+  currently: "building products, breaking things, learning fast.",
+};
+```
 
-**Frontend**
+I like working at the intersection of **engineering × design × product**.
 
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
-![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=flat-square&logo=radixui&logoColor=white)
+My work ranges from high-performance Next.js interfaces and full-stack applications to experimental AI products, interactive experiences, and design systems.
 
-**Backend & Infra**
+I care about the tiny things — typography, motion, loading states, architecture, performance, and the 4px that somehow makes everything feel wrong.
 
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
+---
 
-**Design**
-
-![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white)
-
-**AI & Data**
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![OpenAI](https://img.shields.io/badge/LLaMA_·_Mistral_·_OpenRouter-412991?style=flat-square&logo=openai&logoColor=white)
-
------
-
-## Selected Work
-
-|Project                                                                                                                                                        |What it is                                                                      |Stack                      |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------|
-|[ViralARC.ai](https://viralarc.ai)                                                                                                                             |Social media automation SaaS — rebuilt from scratch, 15K+ paid users            |Next.js, Firebase, Supabase|
-|[Nutgram](https://nutgram.vercel.app)                                                                                                                          |Organic gifting e-commerce store + client portal                                |Next.js, TypeScript        |
-|[Nexus AI](https://nexus-ai-v1-3.vercel.app)                                                                                                                   |AI tool suite in production                                                     |LLaMA, Mistral, OpenRouter |
-|[Hermes Racing](https://hermesracing.in)                                                                                                                       |Motorsports brand site with cinematic preloader                                 |Next.js                    |
-|[KIITFest](https://kiitfest.org) · [Kritarth](https://kritarth.kiit.ac.in) · [Chimera](https://chimera.kiit.ac.in) · [TEDx KIIT](https://tedxkiituniversity.in)|University event platforms — design systems, registration flows, 1000+ delegates|Next.js, Figma             |
-
------
-
-## Experience Snapshot
-
-**Nutgram** — Freelance Full Stack Developer & Digital Strategist *(Apr 2026 – Present)*
-Built the full e-commerce store and custom client portal. Running ad campaigns on retainer — content reach up 35%+ in 60 days.
-
-**ViralARC.ai** — Freelance Full Stack Developer *(Nov 2025 – Jan 2026)*
-Joined as a designer, found the codebase broken, took ownership, migrated everything to Next.js + Firebase, redesigned 8+ screens. Product hit 15K paid users in 3 months.
-
-**Hemsida AVT** — Web Designer & Developer *(Aug 2024 – Jul 2025)*
-10+ school websites. Lighthouse scores up 30%. ERP modules that cut admin work by 80% across 12+ schools.
-
-**UNICEF & Government of Rajasthan** — Freelance Full Stack Developer *(Jul 2021 – Dec 2023)*
-Nutrition tracking platform for 50,000+ children. Dashboards for 50+ field workers. Reporting time dropped 40%.
-
------
-
-## Certifications
-
-Google Cloud — Digital Transformation · App Modernization · Data & AI · Generative AI · Large Language Models · Responsible AI · Cloud Security
-
------
+## ⚡ Tech Stack
 
 <div align="center">
 
-*Open to freelance, contracts, and the right full-time opportunity.*
+### Frontend
 
-**[hxrshrathore.vercel.app](https://hxrshrathore.vercel.app) · [rathoreharsh@outlook.in](mailto:rathoreharsh@outlook.in)**
+<img src="https://skillicons.dev/icons?i=nextjs,react,ts,js,tailwind,html,css&theme=dark" />
+
+### Backend & Data
+
+<img src="https://skillicons.dev/icons?i=nodejs,express,python,fastapi,postgres,mysql,prisma,supabase,firebase&theme=dark" />
+
+### Design & Tools
+
+<img src="https://skillicons.dev/icons?i=figma,git,github,docker,vercel,vscode&theme=dark" />
+
+</div>
+
+---
+
+## ✦ What I Build
+
+```text
+01  WEB EXPERIENCES
+    └── Next.js · React · TypeScript · Tailwind · Motion
+
+02  FULL-STACK PRODUCTS
+    └── Node.js · FastAPI · PostgreSQL · Prisma · Supabase
+
+03  AI EXPERIMENTS
+    └── LLMs · RAG · Model Orchestration · AI Interfaces
+
+04  DESIGN
+    └── Figma · UI/UX · Design Systems · Prototyping
+
+05  CREATIVE DEVELOPMENT
+    └── WebGL · Interactive UI · Motion · Experiments
+```
+
+---
+
+## 🚀 Selected Work
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### ⚡ KIIT FEST 9.0
+
+Digital event infrastructure built for one of KIIT's major university events.
+
+**7,000+ paid registrations**
+
+`QR Entry` `Digital Passes` `Event Tech`
+
+</td>
+<td width="50%" valign="top">
+
+### 🧠 AI Web Builder
+
+Experimental AI-driven website generation system with model orchestration and fallback architecture.
+
+`Next.js` `LLMs` `AI` `TypeScript`
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 🌐 ViralArc.ai
+
+Responsive multilingual web experience with geo-aware language handling and animated interfaces.
+
+`Next.js` `Framer Motion` `Tailwind`
+
+</td>
+<td width="50%" valign="top">
+
+### 🏏 Ranchi Titans
+
+Designed and developed the digital presence for a sports franchise.
+
+`Next.js` `UI/UX` `Responsive Design`
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📊 GitHub
+
+<div align="center">
+
+<img height="170" src="https://github-readme-stats.vercel.app/api?username=hxrshrathore&show_icons=true&hide_border=true&theme=github_dark&bg_color=00000000" />
+
+<img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hxrshrathore&layout=compact&hide_border=true&theme=github_dark&bg_color=00000000" />
+
+<br/><br/>
+
+<img src="https://streak-stats.demolab.com?user=hxrshrathore&theme=github-dark-blue&hide_border=true&background=00000000" />
+
+</div>
+
+---
+
+## 🐍 Contribution Activity
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/hxrshrathore/hxrshrathore/output/github-contribution-grid-snake-dark.svg" alt="GitHub contribution snake" />
+
+</div>
+
+---
+
+## 🎧 Outside the IDE
+
+```text
+designing interfaces     ████████████████████
+shipping side projects   ██████████████████░░
+experimenting with AI    ███████████████████░
+fixing a 4px alignment   ████████████████████
+touching grass           ██████░░░░░░░░░░░░░░
+```
+
+---
+
+<div align="center">
+
+### Have an interesting idea?
+
+I'm always interested in ambitious products, weird experiments,
+great interfaces, and things that probably shouldn't work — but do.
+
+**Let's build something worth remembering.**
+
+<br/>
+
+![Profile Views](https://komarev.com/ghpvc/?username=hxrshrathore\&style=flat-square\&label=PROFILE+VIEWS)
+
+<br/><br/>
+
+`DESIGN × ENGINEERING × PRODUCT`
 
 </div>
