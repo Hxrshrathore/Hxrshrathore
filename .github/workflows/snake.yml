@@ -1,4 +1,5 @@
-name: Generate Contribution Snake
+```yaml
+name: Generate Profile Graphics
 
 on:
   schedule:
@@ -19,6 +20,13 @@ jobs:
     timeout-minutes: 10
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # -------------------------------------------------------
+      # Generate contribution snake
+      # -------------------------------------------------------
+
       - name: Generate contribution snake
         uses: Platane/snk/svg-only@v3
         with:
@@ -27,7 +35,730 @@ jobs:
             dist/github-contribution-grid-snake.svg
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark
 
-      - name: Push snake to output branch
+      # -------------------------------------------------------
+      # Generate custom HARSH.EXE dashboard
+      # -------------------------------------------------------
+
+      - name: Generate GitHub dashboard
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require("fs");
+
+            fs.mkdirSync("dist", { recursive: true });
+
+            const username = context.repo.owner;
+
+            // -----------------------------------------------
+            // USER
+            // -----------------------------------------------
+
+            const { data: user } =
+              await github.rest.users.getByUsername({
+                username
+              });
+
+            // -----------------------------------------------
+            // REPOSITORIES
+            // -----------------------------------------------
+
+            const repos =
+              await github.paginate(
+                github.rest.repos.listForUser,
+                {
+                  username,
+                  per_page: 100,
+                  sort: "updated"
+                }
+              );
+
+            const ownRepos =
+              repos.filter(
+                repo =>
+                  !repo.fork &&
+                  !repo.archived
+              );
+
+            // -----------------------------------------------
+            // STARS
+            // -----------------------------------------------
+
+            const stars =
+              ownRepos.reduce(
+                (sum, repo) =>
+                  sum + repo.stargazers_count,
+                0
+              );
+
+            // -----------------------------------------------
+            // LANGUAGES
+            // -----------------------------------------------
+
+            const languages = {};
+
+            for (const repo of ownRepos.slice(0, 30)) {
+              try {
+                const { data } =
+                  await github.rest.repos.listLanguages({
+                    owner: username,
+                    repo: repo.name
+                  });
+
+                for (const [language, bytes] of Object.entries(data)) {
+                  languages[language] =
+                    (languages[language] || 0) + bytes;
+                }
+              } catch (error) {
+                console.log(
+                  `Could not fetch languages for ${repo.name}`
+                );
+              }
+            }
+
+            const sortedLanguages =
+              Object.entries(languages)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            const languageTotal =
+              sortedLanguages.reduce(
+                (sum, [, bytes]) => sum + bytes,
+                0
+              );
+
+            // -----------------------------------------------
+            // EVENTS
+            // -----------------------------------------------
+
+            let recentEvents = [];
+
+            try {
+              recentEvents =
+                await github.paginate(
+                  github.rest.activity.listPublicEventsForUser,
+                  {
+                    username,
+                    per_page: 100
+                  }
+                );
+            } catch (error) {
+              console.log("Could not fetch events");
+            }
+
+            const pushEvents =
+              recentEvents.filter(
+                event => event.type === "PushEvent"
+              );
+
+            const recentCommits =
+              pushEvents.reduce(
+                (sum, event) =>
+                  sum +
+                  (event.payload?.commits?.length || 0),
+                0
+              );
+
+            // -----------------------------------------------
+            // ESCAPE SVG TEXT
+            // -----------------------------------------------
+
+            const escape = value =>
+              String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;");
+
+            // -----------------------------------------------
+            // LANGUAGE BARS
+            // -----------------------------------------------
+
+            function languageBars(theme) {
+              const foreground =
+                theme === "dark"
+                  ? "#c9d1d9"
+                  : "#24292f";
+
+              const muted =
+                theme === "dark"
+                  ? "#8b949e"
+                  : "#57606a";
+
+              const track =
+                theme === "dark"
+                  ? "#21262d"
+                  : "#eaeef2";
+
+              const accent =
+                theme === "dark"
+                  ? "#58a6ff"
+                  : "#0969da";
+
+              if (!sortedLanguages.length) {
+                return `
+                  <text
+                    x="60"
+                    y="415"
+                    class="mono"
+                    font-size="14"
+                    fill="${muted}"
+                  >
+                    No language data available.
+                  </text>
+                `;
+              }
+
+              return sortedLanguages
+                .map(([language, bytes], index) => {
+                  const percentage =
+                    languageTotal > 0
+                      ? Math.round(
+                          (bytes / languageTotal) * 100
+                        )
+                      : 0;
+
+                  const y = 407 + index * 38;
+
+                  const width =
+                    Math.max(
+                      4,
+                      Math.round(
+                        390 * percentage / 100
+                      )
+                    );
+
+                  return `
+                    <text
+                      x="60"
+                      y="${y}"
+                      class="mono"
+                      font-size="13"
+                      fill="${foreground}"
+                    >
+                      ${escape(language)}
+                    </text>
+
+                    <text
+                      x="545"
+                      y="${y}"
+                      text-anchor="end"
+                      class="mono"
+                      font-size="12"
+                      fill="${muted}"
+                    >
+                      ${percentage}%
+                    </text>
+
+                    <rect
+                      x="155"
+                      y="${y - 11}"
+                      width="370"
+                      height="8"
+                      rx="4"
+                      fill="${track}"
+                    />
+
+                    <rect
+                      x="155"
+                      y="${y - 11}"
+                      width="${Math.min(width, 370)}"
+                      height="8"
+                      rx="4"
+                      fill="${accent}"
+                    >
+                      <animate
+                        attributeName="width"
+                        from="0"
+                        to="${Math.min(width, 370)}"
+                        dur="1.2s"
+                        fill="freeze"
+                      />
+                    </rect>
+                  `;
+                })
+                .join("");
+            }
+
+            // -----------------------------------------------
+            // SVG
+            // -----------------------------------------------
+
+            function createDashboard(theme) {
+              const dark = theme === "dark";
+
+              const bg =
+                dark ? "#0d1117" : "#ffffff";
+
+              const panel =
+                dark ? "#161b22" : "#f6f8fa";
+
+              const border =
+                dark ? "#30363d" : "#d0d7de";
+
+              const foreground =
+                dark ? "#c9d1d9" : "#24292f";
+
+              const muted =
+                dark ? "#8b949e" : "#57606a";
+
+              const green =
+                dark ? "#3fb950" : "#1a7f37";
+
+              const blue =
+                dark ? "#58a6ff" : "#0969da";
+
+              const purple =
+                dark ? "#bc8cff" : "#8250df";
+
+              const orange =
+                dark ? "#d29922" : "#9a6700";
+
+              return `
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="900"
+                height="650"
+                viewBox="0 0 900 650"
+              >
+
+                <style>
+
+                  .mono {
+                    font-family:
+                      "SFMono-Regular",
+                      "Cascadia Code",
+                      "Liberation Mono",
+                      Menlo,
+                      monospace;
+                  }
+
+                  .title {
+                    font-family:
+                      -apple-system,
+                      BlinkMacSystemFont,
+                      "Segoe UI",
+                      sans-serif;
+                    font-weight: 700;
+                  }
+
+                  @keyframes blink {
+                    0%, 49% {
+                      opacity: 1;
+                    }
+
+                    50%, 100% {
+                      opacity: 0;
+                    }
+                  }
+
+                  @keyframes pulse {
+                    0%, 100% {
+                      opacity: .45;
+                    }
+
+                    50% {
+                      opacity: 1;
+                    }
+                  }
+
+                  @keyframes float {
+                    0%, 100% {
+                      transform: translateY(0px);
+                    }
+
+                    50% {
+                      transform: translateY(-3px);
+                    }
+                  }
+
+                  .cursor {
+                    animation:
+                      blink 1s step-end infinite;
+                  }
+
+                  .online {
+                    animation:
+                      pulse 2s ease-in-out infinite;
+                  }
+
+                  .float {
+                    animation:
+                      float 3s ease-in-out infinite;
+                  }
+
+                </style>
+
+                <!-- Background -->
+
+                <rect
+                  width="900"
+                  height="650"
+                  rx="18"
+                  fill="${bg}"
+                />
+
+                <rect
+                  x="1"
+                  y="1"
+                  width="898"
+                  height="648"
+                  rx="17"
+                  fill="none"
+                  stroke="${border}"
+                />
+
+                <!-- Window header -->
+
+                <circle
+                  cx="31"
+                  cy="31"
+                  r="6"
+                  fill="#ff5f56"
+                />
+
+                <circle
+                  cx="51"
+                  cy="31"
+                  r="6"
+                  fill="#ffbd2e"
+                />
+
+                <circle
+                  cx="71"
+                  cy="31"
+                  r="6"
+                  fill="#27c93f"
+                />
+
+                <text
+                  x="450"
+                  y="36"
+                  text-anchor="middle"
+                  class="mono"
+                  font-size="13"
+                  fill="${muted}"
+                >
+                  harsh@github: ~/profile
+                </text>
+
+                <!-- Header -->
+
+                <text
+                  x="45"
+                  y="100"
+                  class="title"
+                  font-size="32"
+                  fill="${foreground}"
+                >
+                  HARSH.EXE
+                </text>
+
+                <circle
+                  cx="746"
+                  cy="91"
+                  r="5"
+                  fill="${green}"
+                  class="online"
+                />
+
+                <text
+                  x="760"
+                  y="96"
+                  class="mono"
+                  font-size="12"
+                  fill="${green}"
+                >
+                  ONLINE
+                </text>
+
+                <text
+                  x="45"
+                  y="132"
+                  class="mono"
+                  font-size="13"
+                  fill="${muted}"
+                >
+                  &gt; github telemetry loaded successfully
+                </text>
+
+                <rect
+                  x="45"
+                  y="155"
+                  width="810"
+                  height="1"
+                  fill="${border}"
+                />
+
+                <!-- Stats -->
+
+                <g class="float">
+
+                  <rect
+                    x="45"
+                    y="185"
+                    width="185"
+                    height="110"
+                    rx="12"
+                    fill="${panel}"
+                    stroke="${border}"
+                  />
+
+                  <text
+                    x="65"
+                    y="217"
+                    class="mono"
+                    font-size="11"
+                    fill="${muted}"
+                  >
+                    REPOSITORIES
+                  </text>
+
+                  <text
+                    x="65"
+                    y="266"
+                    class="title"
+                    font-size="36"
+                    fill="${blue}"
+                  >
+                    ${user.public_repos}
+                  </text>
+
+                </g>
+
+                <rect
+                  x="250"
+                  y="185"
+                  width="185"
+                  height="110"
+                  rx="12"
+                  fill="${panel}"
+                  stroke="${border}"
+                />
+
+                <text
+                  x="270"
+                  y="217"
+                  class="mono"
+                  font-size="11"
+                  fill="${muted}"
+                >
+                  FOLLOWERS
+                </text>
+
+                <text
+                  x="270"
+                  y="266"
+                  class="title"
+                  font-size="36"
+                  fill="${purple}"
+                >
+                  ${user.followers}
+                </text>
+
+                <rect
+                  x="455"
+                  y="185"
+                  width="185"
+                  height="110"
+                  rx="12"
+                  fill="${panel}"
+                  stroke="${border}"
+                />
+
+                <text
+                  x="475"
+                  y="217"
+                  class="mono"
+                  font-size="11"
+                  fill="${muted}"
+                >
+                  TOTAL STARS
+                </text>
+
+                <text
+                  x="475"
+                  y="266"
+                  class="title"
+                  font-size="36"
+                  fill="${orange}"
+                >
+                  ${stars}
+                </text>
+
+                <rect
+                  x="660"
+                  y="185"
+                  width="195"
+                  height="110"
+                  rx="12"
+                  fill="${panel}"
+                  stroke="${border}"
+                />
+
+                <text
+                  x="680"
+                  y="217"
+                  class="mono"
+                  font-size="11"
+                  fill="${muted}"
+                >
+                  RECENT COMMITS
+                </text>
+
+                <text
+                  x="680"
+                  y="266"
+                  class="title"
+                  font-size="36"
+                  fill="${green}"
+                >
+                  ${recentCommits}
+                </text>
+
+                <!-- Languages -->
+
+                <text
+                  x="45"
+                  y="350"
+                  class="mono"
+                  font-size="13"
+                  fill="${blue}"
+                >
+                  $ cat ./languages.log
+                </text>
+
+                ${languageBars(theme)}
+
+                <!-- Terminal -->
+
+                <rect
+                  x="585"
+                  y="375"
+                  width="270"
+                  height="190"
+                  rx="12"
+                  fill="${panel}"
+                  stroke="${border}"
+                />
+
+                <text
+                  x="610"
+                  y="410"
+                  class="mono"
+                  font-size="12"
+                  fill="${green}"
+                >
+                  harsh@github
+                </text>
+
+                <text
+                  x="610"
+                  y="442"
+                  class="mono"
+                  font-size="12"
+                  fill="${foreground}"
+                >
+                  $ status
+                </text>
+
+                <text
+                  x="610"
+                  y="472"
+                  class="mono"
+                  font-size="12"
+                  fill="${muted}"
+                >
+                  building cool things
+                </text>
+
+                <text
+                  x="610"
+                  y="502"
+                  class="mono"
+                  font-size="12"
+                  fill="${foreground}"
+                >
+                  $ stack
+                </text>
+
+                <text
+                  x="610"
+                  y="532"
+                  class="mono"
+                  font-size="12"
+                  fill="${blue}"
+                >
+                  Next.js / TS / AI
+                </text>
+
+                <rect
+                  x="610"
+                  y="546"
+                  width="8"
+                  height="15"
+                  rx="1"
+                  fill="${foreground}"
+                  class="cursor"
+                />
+
+                <!-- Footer -->
+
+                <rect
+                  x="45"
+                  y="600"
+                  width="810"
+                  height="1"
+                  fill="${border}"
+                />
+
+                <text
+                  x="45"
+                  y="627"
+                  class="mono"
+                  font-size="11"
+                  fill="${muted}"
+                >
+                  generated automatically via GitHub Actions
+                </text>
+
+                <text
+                  x="855"
+                  y="627"
+                  text-anchor="end"
+                  class="mono"
+                  font-size="11"
+                  fill="${green}"
+                >
+                  ● SYSTEM NOMINAL
+                </text>
+
+              </svg>
+              `;
+            }
+
+            fs.writeFileSync(
+              "dist/github-dashboard.svg",
+              createDashboard("light")
+            );
+
+            fs.writeFileSync(
+              "dist/github-dashboard-dark.svg",
+              createDashboard("dark")
+            );
+
+            console.log("Dashboard generated.");
+            console.log(`User: ${username}`);
+            console.log(`Repos: ${user.public_repos}`);
+            console.log(`Followers: ${user.followers}`);
+            console.log(`Stars: ${stars}`);
+            console.log(`Recent commits: ${recentCommits}`);
+
+      # -------------------------------------------------------
+      # Publish everything
+      # -------------------------------------------------------
+
+      - name: Push graphics to output branch
         uses: crazy-max/ghaction-github-pages@v4
         with:
           build_dir: dist
@@ -35,3 +766,4 @@ jobs:
           keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
