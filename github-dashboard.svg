@@ -205,7 +205,7 @@
         font-size="36"
         fill="#0969da"
       >
-        49
+        50
       </text>
 
     </g>
@@ -331,7 +331,7 @@
           font-size="12"
           fill="#57606a"
         >
-          75%
+          79%
         </text>
 
         <rect
@@ -346,7 +346,7 @@
         <rect
           x="155"
           y="396"
-          width="293"
+          width="308"
           height="8"
           rx="4"
           fill="#0969da"
@@ -354,7 +354,7 @@
           <animate
             attributeName="width"
             from="0"
-            to="293"
+            to="308"
             dur="1.2s"
             fill="freeze"
           />
@@ -378,7 +378,7 @@
           font-size="12"
           fill="#57606a"
         >
-          12%
+          10%
         </text>
 
         <rect
@@ -393,7 +393,7 @@
         <rect
           x="155"
           y="434"
-          width="47"
+          width="39"
           height="8"
           rx="4"
           fill="#0969da"
@@ -401,7 +401,7 @@
           <animate
             attributeName="width"
             from="0"
-            to="47"
+            to="39"
             dur="1.2s"
             fill="freeze"
           />
@@ -472,7 +472,7 @@
           font-size="12"
           fill="#57606a"
         >
-          4%
+          3%
         </text>
 
         <rect
@@ -487,7 +487,7 @@
         <rect
           x="155"
           y="510"
-          width="16"
+          width="12"
           height="8"
           rx="4"
           fill="#0969da"
@@ -495,7 +495,7 @@
           <animate
             attributeName="width"
             from="0"
-            to="16"
+            to="12"
             dur="1.2s"
             fill="freeze"
           />
@@ -519,7 +519,7 @@
           font-size="12"
           fill="#57606a"
         >
-          4%
+          3%
         </text>
 
         <rect
@@ -534,7 +534,7 @@
         <rect
           x="155"
           y="548"
-          width="16"
+          width="12"
           height="8"
           rx="4"
           fill="#0969da"
@@ -542,7 +542,7 @@
           <animate
             attributeName="width"
             from="0"
-            to="16"
+            to="12"
             dur="1.2s"
             fill="freeze"
           />
